@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<body>
+<h1>Coffee List </h1>
+<a href="/add">Add a Coffee</a><br />
+<div th:each="coffee : ${coffees}">
+	<h4 th:inline="text">[[${coffee.brand}]] [[${coffee.name}]]</h4>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<body>
+<h1>Coffee Form</h1>
+<form action="#" th:action="@{/process}" th:object="${coffee}" method="post">
+	Brand :<input type="text" th:field="*{brand}" />
+	<span th:if="${#fields.hasErrors('brand')}"
+		th:errors="*{brand}"></span><br />
+	Name :<input type="text" th:field="*{name}" />
+	<span th:if="${#fields.hasErrors('name')}"
+		th:errors="*{name}"></span><br />
+	Bean Type :<input type="text" th:field="*{beanType}" />
+	<span th:if="${#fields.hasErrors('beanType')}"
+		th:errors="*{beanType}"></span><br />
+	Notes :<input type="text" th:field="*{notes}" />
+	<span th:if="${#fields.hasErrors('notes')}"
+		th:errors="*{notes}"></span><br />
+	<input type="submit" value="Submit" />
+</form>
+</body>
+</html>

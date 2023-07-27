@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coffeeapi-deployment
+  labels:
+    app: coffeeapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coffeeapi
+  template:
+    metadata:
+      labels:
+        app: coffeeapi
+    spec:
+      containers:
+      - name: coffeeapi-container
+        image: 
+        ports:
+        - containerPort: 8000
