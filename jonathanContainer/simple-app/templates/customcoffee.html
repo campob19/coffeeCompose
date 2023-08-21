@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivot</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .rounded-border {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 15px;
+            transition: box-shadow .3s;
+        }
+
+        .rounded-border:hover {
+            box-shadow: 0 0 11px rgba(33,33,33,.2); 
+        }
+
+        .btn-blue {
+            background-color: #0054a6;
+            color: #ffffff;
+        }
+
+        .build-server {
+            font-family: "Arial", sans-serif;
+            font-size: 1.5rem;
+            color: #4f4f4f;
+            margin-top: 10px;
+        }
+
+        .pivot-home {
+            color: whitesmoke;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand pivot-home" href="/">Coffee</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="customcoffee">Custom Coffee</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <br>
+                <br>
+                <br>
+                <br>
+                <h4 class="build-server">Build your coffee</h4>
+                <div class="rounded-border">
+                    <form action="{{ url_for('customcoffee') }}" method="post">
+                        <div class="form-group">
+                            <label for="clientname">Your name:</label>
+                            <input type="text" id="clientname" name="clientname" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ordertype">Order:</label>
+                            <select name="ordertype" id="ordertype" class="form-control">
+                                <option value="coldbrew">Cold Brew</option>
+                                <option value="latte">Latte</option>
+                                <option value="cappuccino">Cappuccino</option>
+                                <option value="flatwhite">Flat White</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="milktype">Milk:</label>
+                            <select name="milktype" id="milktype" class="form-control">
+                                <option value="fullcream">Full Cream</option>
+                                <option value="halfandhalf">Half and Half</option>
+                                <option value="twopercent">Two Percent</option>
+                                <option value="oatmilk">Oat Milk</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-blue">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
